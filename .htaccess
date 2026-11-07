@@ -1,0 +1,13 @@
+RewriteEngine On
+
+# Condizioni per i vecchi domini (il flag [OR] serve a concatenarli)
+RewriteCond %{HTTP_HOST} ^(?:www\.)?blacklotuschauffeur\.com$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^(?:www\.)?blacklotuschauffeur\.it$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^(?:www\.)?blacklotusncc\.com$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^(?:www\.)?blacklotusncc\.it$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^(?:www\.)?blacklotus\.com$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^(?:www\.)?blacklotus\.it$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^(?:www\.)?driveblacklotus\.it$ [NC]
+
+# Regola di reindirizzamento verso il sito principale
+RewriteRule ^(.*)$ https://www.driveblacklotus.com/$1 [L,R=301]
